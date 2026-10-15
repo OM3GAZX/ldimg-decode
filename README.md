@@ -1,5 +1,4 @@
-Dexter LDIMG extractor program
-
+# Dexter LDIMG extractor program
 2026 OM3GAZX.
 
 May be redistributed freely, just make sure to credit me.
@@ -8,12 +7,10 @@ I don't care for what this project is used for. As long as it does good, that's 
 
 Installing FFmpeg is required for usage.
 
-Build:
-
+## Build:
   gcc -O2 -Wall -Wextra main.c -o ldimg-decode
 
-Usage:
-
+## Usage:
   ./ldimg-decode [--video] FILE
 
   ./ldimg-decode --jpeg-only FILE
@@ -30,6 +27,7 @@ Usage:
 
 The default argument is --video, if no argument is provided.
 
+## Video:
 Before extracting the LDIMG's contents, the file's metadata is printed for verification.
 
 ldimg-decode is designed to be lightning fast, so the file's table of contents is read directly, instead of playing back the entire video.
@@ -44,12 +42,14 @@ ldimg-decode extracts frames in bulks, which are 1000 per bulk by default. (Oper
 
 Use --batch-size to change this, at your own risk.
 
+## Audio:
 ldimg-decode can extract audio in two formats:
 
   --wav:  The raw, unmodified audio embedded in the LDIMG, at 44.1 kHz, with 16-bit PCM.
 
   --flac: Re-encodes the embedded audio to a lossless format.
 
+## Miscellaneous:
 Finally, ldimg-decode includes options for merging the audio and video tracks and extracting the VBI metadata in MAME or Dexter-compatible formats:
 
 --merge:    Merges the extracted video and audio files.
